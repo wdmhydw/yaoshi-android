@@ -47,6 +47,8 @@ def main():
     ns='{http://schemas.android.com/apk/res/android}'
     version=doc.getroot().get(ns+'versionName')
     doc.find('application').set(ns+'debuggable','false' if a.release else 'true')
+    if a.test_install:
+        doc.find('application').set(ns+'label','燿识 · 测试')
     doc.write(manifest,encoding='UTF-8',xml_declaration=True)
     if (app/'assets').is_dir():shutil.copytree(app/'assets',out/'assets',dirs_exist_ok=True)
     source_commit=None
