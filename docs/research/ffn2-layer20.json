@@ -1,0 +1,117 @@
+{
+  "device": "XRing O3 / yingtian / OS4.0.16.0.XBMCNXM",
+  "scope": "FFN2 (including bias and residual) for zero-based encoder layer 20, middle 30 s capture from the same 90 s WAV",
+  "shape": [
+    1500,
+    4096,
+    1024
+  ],
+  "padded_frames": 1536,
+  "precision": {
+    "elements_per_replay": 1536000,
+    "full_length_checked_each_replay": true,
+    "bit_mismatches_across_all_three_modes_all_six_triplets": 0,
+    "tile_control_wrong_if_no_launch": 2048
+  },
+  "timing": "Every permutation of CPU/L2B/DDR ran once. Each fresh process used one warm-up plus three timed replays. Four CPU threads and the same affinity. Raw FP32 inputs in host memory to final FP32 host array, model load and graph build excluded. CPU copies both inputs, computes and copies output. NPU packs/quantizes/synchronizes/reads back. Independent per-stage component medians need not sum.",
+  "timing_ms": {
+    "cpu": {
+      "group_medians_ms": [
+        56.038,
+        73.916,
+        72.013,
+        79.085,
+        71.395,
+        79.586
+      ],
+      "median_of_group_medians_ms": {
+        "wall": 72.9645,
+        "compute": 70.8495
+      },
+      "pooled_median_ms": 71.70400000000001,
+      "all_measured_range_ms": [
+        54.853,
+        104.838
+      ]
+    },
+    "l2b": {
+      "group_medians_ms": [
+        183.972,
+        181.735,
+        185.009,
+        178.629,
+        181.206,
+        179.594
+      ],
+      "median_of_group_medians_ms": {
+        "pack": 9.144,
+        "submit_sync": 170.364,
+        "final_read": 1.7515,
+        "wall": 181.4705
+      },
+      "pooled_median_ms": 181.91750000000002,
+      "all_measured_range_ms": [
+        177.421,
+        188.47
+      ]
+    },
+    "ddr": {
+      "group_medians_ms": [
+        290.041,
+        280.646,
+        284.188,
+        284.642,
+        282.529,
+        283.786
+      ],
+      "median_of_group_medians_ms": {
+        "pack": 10.967,
+        "submit_sync": 271.54,
+        "final_read": 1.547,
+        "wall": 283.987
+      },
+      "pooled_median_ms": 283.497,
+      "all_measured_range_ms": [
+        279.28,
+        290.155
+      ]
+    }
+  },
+  "comparison": {
+    "l2b_div_cpu": 2.4871067436904246,
+    "l2b_time_reduction_vs_same_ddr_pct": 36.099011574473494,
+    "per_group_ddr_time_reduction_pct": [
+      36.570346950948306,
+      35.24404409825902,
+      34.899080890114995,
+      37.24432796284456,
+      35.86286717469711,
+      36.71498946389181
+    ],
+    "paired_cpu_5pct_time_reduction_wins": 0,
+    "cpu_time_minus_5pct_ms": 69.316275
+  },
+  "graph": {
+    "panels_and_submissions": 16,
+    "pairs_per_panel": 64,
+    "frames_per_update_workgroup": 16,
+    "logical_matrix_writes_to_L2B_B": 3221225472,
+    "logical_matrix_writes_to_DDR_B": 0,
+    "logical_accumulator_writes_to_L2B_B": 3221225472,
+    "L2B_lease_bytes_per_panel": 6291456,
+    "intermediate_host_read_B": 0,
+    "final_host_read_B": 6144000,
+    "persistent_packed_weight_B": 33554432,
+    "dynamic_payload_B": 24576000,
+    "sum_of_host_upload_buffer_payload_ranges_B": 56623104,
+    "physical_DRAM_counters": null
+  },
+  "producer_control": {
+    "description": "all 1024 INT8 matrix nodes, but only final pair in each panel scaled plus finish; checks a separate last-pair reference, not the complete FFN2 output",
+    "warm_median_submit_and_sync_ms": 77.2435,
+    "warm_median_host_to_host_ms": 91.4645
+  },
+  "long_audio_end_to_end_measured_this_run": false,
+  "hardware_energy_measured": false,
+  "release_integrated": false
+}

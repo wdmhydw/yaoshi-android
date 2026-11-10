@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict');
+require('../app/src/main/assets/ui/timeline.js');
+const rows=[{id:'1',start:1,end:3,text:'one'},{id:'2',start:5,end:7,text:'two'}];
+const at=(position,processed=7,busy=true,complete=false)=>YaoshiTimeline.locate(rows,position,processed,busy,complete);
+assert.equal(at(1).row.id,'1');
+assert.equal(at(2.999).row.id,'1');
+assert.equal(at(3).kind,'silence');
+assert.equal(at(4).kind,'silence');
+assert.equal(at(5).row.id,'2');
+assert.equal(at(8).kind,'pending');
+assert.equal(at(8,7,false).kind,'untranscribed');
+assert.equal(at(8,9,false,true).kind,'silence');
+assert.equal(YaoshiTimeline.locate([],0,0,true,false).kind,'pending');
+assert.equal(YaoshiTimeline.locate([],0,0,false,true).kind,'silence');
+console.log('Timeline: 10 playback, silence, live-boundary and cancellation assertions passed.');

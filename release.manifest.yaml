@@ -1,0 +1,14 @@
+product: Yaoshi Android
+version: 0.7.0
+version_code: 19
+application_id: win.youhoo.moss
+platform: android
+min_sdk: 35
+target_sdk: 35
+compile_sdk: 36
+abi: arm64-v8a
+backends: [cpu, vulkan, opencl]
+repository: https://github.com/wdmhydw/yaoshi-android
+artifacts: [Yaoshi-0.7.0-arm64-v8a.apk, SHA256SUMS.txt]
+signing_certificate_sha256: 46f0bf5812abf762c9e541469d9d79e9266fb8e93210c1ebbef25baa4962f1c1
+dependencies: android/dependencies.lock.json

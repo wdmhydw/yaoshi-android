@@ -1,0 +1,4 @@
+{
+  global: Java_win_youhoo_moss_GpuEngineService_runSession;
+  local: *;
+};

@@ -1,0 +1,14 @@
+{
+  "templates": [
+    {"id":"meeting","name":"通用会议","prompt":"生成会议纪要，按以下顺序组织：简短摘要、讨论要点（按议题归纳）、已定事项、待办、待议问题。待办采用表格：事项｜负责人｜期限｜原文。可以根据上下文称呼和职责推测身份，采用最合理的名字或角色。每项决策和待办附原文时间戳引用；没有明确期限时填 —。没有内容的章节省略。把建议和最终决定分清楚，保留数字与条件。"},
+    {"id":"weekly","name":"项目周会","prompt":"整理为项目周报式会议纪要：本周进展、关键决定、风险与阻塞、下一步待办。按项目或议题分组，突出完成状态、变化和依赖。待办表格包含事项、负责人、期限、原文引用。可结合上下文推测成员的职责和称谓。已完成和待执行的事项分别表达，保留重要数据与限制条件；空章节省略。"},
+    {"id":"interview","name":"访谈整理","prompt":"整理为访谈笔记：访谈主题、一段概要、主题观点、代表性表达、后续问题。按主题归纳而非逐句复述，保留不同人的观点归属和分歧，可以根据上下文推测访谈者与受访者身份或角色。引述保持原意，关键观点提供原文时间戳引用。实际提及后续任务时附任务与负责人，空章节省略。"},
+    {"id":"lesson","name":"课程笔记","prompt":"整理为便于复习的课程笔记：内容概览、知识结构、关键概念与解释、示例、结论、练习或后续任务。根据讲述内容重组层级，保留术语、公式和重要数字；关键概念和示例附原文时间戳引用。可以根据上下文推测讲者或提问者的角色。未讲到的补充知识不纳入正文，空章节省略。"}
+  ],
+  "provenance": {
+    "approach":"Original Chinese prompts, informed by the concise decisions/action-items structure of github/awesome-copilot meeting-minutes. Adapted for source-linked ASR records, editable templates, and user-requested contextual speaker inference.",
+    "reference":"https://github.com/github/awesome-copilot/blob/main/skills/meeting-minutes/SKILL.md",
+    "referenceLicense":"MIT",
+    "reviewed":"2026-11-05"
+  }
+}

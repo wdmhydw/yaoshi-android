@@ -1,0 +1,17 @@
+const assert=require('node:assert/strict');
+require('../app/src/main/assets/ui/transcript.js');
+const rows=[{id:'seg_1',start:0,end:2,speaker:'片段1-S01',text:'已完成'}];
+const draft={id:'draft_1',start:2,speaker:'片段2-S02',text:'正在生成',provisional:true};
+const notes={autoSpeakers:{'片段1-S01':'voice_1','片段2-S02':'voice_1'}};
+const preview=YaoshiTranscript.preview(rows,draft,notes);
+assert.equal(preview.length,2);
+assert.equal(preview[1].speaker,preview[0].speaker);
+assert.equal(preview[1].speakerNumber,preview[0].speakerNumber);
+assert.equal(preview[1].end,undefined);
+assert.equal(rows.length,1);
+assert.equal(rows[0].speaker,'片段1-S01');
+assert.equal(YaoshiTranscript.preview(rows,null,notes).length,1);
+assert.equal(YaoshiTranscript.preview(rows,{...draft,text:''},notes).length,1);
+assert.equal(YaoshiTranscript.preview(rows,{...draft,start:NaN},notes).length,1);
+assert.equal(YaoshiTranscript.preview(rows,{...draft,provisional:false},notes).length,1);
+console.log('Preview: 10 draft isolation and speaker identity assertions passed.');

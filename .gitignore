@@ -1,0 +1,17 @@
+/.cache/
+/.venv/
+/vendor/
+/models/
+/android/build/
+/android/out/
+/Releases/
+__pycache__/
+*.pyc
+*.apk
+*.idsig
+*.keystore
+*.jks
+*.p12
+*.dpapi
+*.gguf
+/android/app/src/main/assets/speaker/*.onnx

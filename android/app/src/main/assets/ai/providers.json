@@ -1,0 +1,4896 @@
+{
+  "presets": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "category": "official",
+      "aliases": "ChatGPT GPT",
+      "apiKeyUrl": "https://platform.openai.com/api-keys",
+      "api": "openai-responses",
+      "baseUrl": "https://api.openai.com/v1",
+      "authMode": "bearer",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "documented",
+      "docsUrl": "https://developers.openai.com/api/reference/resources/models/methods/list"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic Claude",
+      "category": "official",
+      "aliases": "Claude 克劳德",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.anthropic.com/v1",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "discovery": "anthropic",
+      "modelsPath": "models",
+      "evidence": "documented",
+      "docsUrl": "https://platform.claude.com/docs/en/api/models/list"
+    },
+    {
+      "id": "google",
+      "name": "Google Gemini",
+      "category": "official",
+      "aliases": "谷歌 Gemini",
+      "apiKeyUrl": "https://aistudio.google.com/apikey",
+      "api": "google-generative-ai",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "authMode": "x-goog-api-key",
+      "discovery": "google",
+      "modelsPath": "models",
+      "evidence": "documented",
+      "docsUrl": "https://ai.google.dev/api/models"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "深度求索",
+      "api": "openai-completions",
+      "baseUrl": "https://api.deepseek.com/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "documented",
+      "websiteUrl": "https://platform.deepseek.com/",
+      "apiKeyUrl": "https://platform.deepseek.com/api_keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "deepseek-flash",
+          "name": "DeepSeek V4.1 Flash"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      },
+      "docsUrl": "https://api-docs.deepseek.com/api/list-models/"
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "category": "aggregator",
+      "aliases": "Open Router",
+      "apiKeyUrl": "https://openrouter.ai/settings/keys",
+      "api": "openai-completions",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "authMode": "bearer",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "documented-public-catalog",
+      "docsUrl": "https://openrouter.ai/docs/api/api-reference/models/list-all-models-and-their-properties"
+    },
+    {
+      "id": "siliconflow-cn",
+      "name": "硅基流动 · 中国",
+      "category": "cn_official",
+      "aliases": "硅基 SiliconFlow",
+      "api": "openai-completions",
+      "baseUrl": "https://api.siliconflow.cn/v1",
+      "authMode": "bearer",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "documented",
+      "docsUrl": "https://api-docs.siliconflow.cn/docs/api/models-get"
+    },
+    {
+      "id": "dashscope-cn",
+      "name": "阿里云百炼 · 北京",
+      "family": "qianwen",
+      "planKey": "payg",
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "千问 通义 阿里 百炼 bailian aliyun qwen",
+      "api": "openai-completions",
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "bailian",
+      "modelsPath": "/api/v1/models",
+      "evidence": "documented",
+      "websiteUrl": "https://platform.qianwenai.com/",
+      "apiKeyUrl": "https://platform.qianwenai.com/home/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "qwen3.8-max",
+          "name": "Qwen3.8 Max"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      },
+      "note": "可在高级设置填写控制台的业务空间专属域名；密钥与地域须一致。",
+      "docsUrl": "https://help.aliyun.com/zh/model-studio/list-models"
+    },
+    {
+      "id": "dashscope-intl",
+      "name": "阿里云百炼 · 新加坡",
+      "family": "qwencloud",
+      "planKey": "payg",
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "通义 阿里 qwen",
+      "api": "openai-completions",
+      "baseUrl": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "bailian",
+      "modelsPath": "/api/v1/models",
+      "evidence": "documented",
+      "websiteUrl": "https://home.qwencloud.com/",
+      "apiKeyUrl": "https://home.qwencloud.com/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "qwen3.8-max",
+          "name": "Qwen3.8 Max"
+        },
+        {
+          "id": "qwen3.8-flash",
+          "name": "Qwen3.8 Flash"
+        },
+        {
+          "id": "qwen3.7-max",
+          "name": "Qwen3.7 Max"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      },
+      "docsUrl": "https://help.aliyun.com/zh/model-studio/list-models"
+    },
+    {
+      "id": "moonshot-cn",
+      "name": "Kimi / Moonshot · 中国",
+      "family": "kimi",
+      "planKey": "payg",
+      "regionKey": "cn",
+      "category": "cn_official",
+      "aliases": "月之暗面 moonshot",
+      "api": "openai-completions",
+      "baseUrl": "https://api.moonshot.cn/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "compatible-probe",
+      "websiteUrl": "https://platform.kimi.com/",
+      "apiKeyUrl": "https://platform.kimi.com/console/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "kimi-k2.7-code-highspeed",
+          "name": "Kimi K2.7 Code HighSpeed"
+        },
+        {
+          "id": "kimi-k2.6",
+          "name": "Kimi K2.6"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      },
+      "docsUrl": "https://platform.kimi.com/docs/api/models-overview"
+    },
+    {
+      "id": "zhipu-cn",
+      "name": "智谱 GLM · API 计费",
+      "category": "cn_official",
+      "family": "zhipu",
+      "planKey": "payg",
+      "regionKey": "cn",
+      "aliases": "智谱 glm bigmodel z.ai chatglm",
+      "api": "openai-completions",
+      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+      "authMode": "bearer",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "compatible-probe",
+      "note": "此项为普通 API 入口；Coding Plan 应单独配置其套餐地址。列表接口若未开放可手动添加模型。",
+      "docsUrl": "https://docs.bigmodel.cn/api-reference/模型-api/对话补全"
+    },
+    {
+      "id": "xiaomi",
+      "name": "小米 MiMo · API 计费",
+      "family": "xiaomi-mimo",
+      "planKey": "payg",
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "小米",
+      "api": "openai-completions",
+      "baseUrl": "https://api.xiaomimimo.com/v1",
+      "authMode": "api-key",
+      "inferencePath": "chat/completions",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "compatible-probe",
+      "websiteUrl": "https://platform.xiaomimimo.com/",
+      "apiKeyUrl": "https://platform.xiaomimimo.com/#/console/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "mimo-v2.5-pro",
+          "name": "MiMo-V2.5-Pro"
+        },
+        {
+          "id": "mimo-v2.5",
+          "name": "MiMo-V2.5"
+        },
+        {
+          "id": "mimo-v2.6-pro",
+          "name": "MiMo V2.6 Pro"
+        },
+        {
+          "id": "mimo-v2.6-flash",
+          "name": "MiMo V2.6 Flash"
+        },
+        {
+          "id": "mimo-v2.6-pro-ultraspeed",
+          "name": "MiMo V2.6 Pro UltraSpeed"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      },
+      "docsUrl": "https://mimo.mi.com/docs/en-US/quick-start/summary/first-api-call"
+    },
+    {
+      "id": "xiaomi-token-plan-cn",
+      "name": "小米 MiMo · Token Plan 中国",
+      "family": "xiaomi-mimo",
+      "planKey": "tokenPlan",
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "小米",
+      "api": "openai-completions",
+      "baseUrl": "https://token-plan-cn.xiaomimimo.com/v1",
+      "authMode": "api-key",
+      "inferencePath": "chat/completions",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "compatible-probe",
+      "websiteUrl": "https://platform.xiaomimimo.com/#/token-plan",
+      "apiKeyUrl": "https://platform.xiaomimimo.com/#/console/plan-manage",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "mimo-v2.5-pro",
+          "name": "MiMo-V2.5-Pro"
+        },
+        {
+          "id": "mimo-v2.5",
+          "name": "MiMo-V2.5"
+        },
+        {
+          "id": "mimo-v2.6-pro",
+          "name": "MiMo V2.6 Pro"
+        },
+        {
+          "id": "mimo-v2.6-flash",
+          "name": "MiMo V2.6 Flash"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      },
+      "note": "使用套餐专属密钥和控制台给出的地区地址；与普通 API 连接分开保存。",
+      "docsUrl": "https://mimo.mi.com/docs/en-US/quick-start/summary/first-api-call"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama · 本地",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "local",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "http://127.0.0.1:11434/v1",
+      "authMode": "none",
+      "inferencePath": "chat/completions",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "compatible-probe",
+      "websiteUrl": "https://ollama.com/",
+      "apiKeyUrl": null,
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "qwen3.5",
+          "name": "Qwen3.5"
+        },
+        {
+          "id": "gpt-oss:20b",
+          "name": "GPT-OSS 20B"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      },
+      "docsUrl": "https://docs.ollama.com/api/openai-compatibility"
+    },
+    {
+      "id": "lmstudio",
+      "name": "LM Studio · 本地",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "local",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "http://127.0.0.1:1234/v1",
+      "authMode": "none",
+      "inferencePath": "chat/completions",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "compatible-probe",
+      "websiteUrl": "https://lmstudio.ai/",
+      "apiKeyUrl": null,
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "openai/gpt-oss-20b",
+          "name": "GPT-OSS 20B"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      },
+      "docsUrl": "https://lmstudio.ai/docs/developer/openai-compat"
+    },
+    {
+      "id": "custom-openai",
+      "name": "自定义 · OpenAI Chat 兼容",
+      "api": "openai-completions",
+      "baseUrl": "",
+      "authMode": "bearer",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "user-configured"
+    },
+    {
+      "id": "custom-responses",
+      "name": "自定义 · OpenAI Responses 兼容",
+      "api": "openai-responses",
+      "baseUrl": "",
+      "authMode": "bearer",
+      "discovery": "openai",
+      "modelsPath": "models",
+      "evidence": "user-configured"
+    },
+    {
+      "id": "custom-anthropic",
+      "name": "自定义 · Anthropic 兼容",
+      "api": "anthropic-messages",
+      "baseUrl": "",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "discovery": "anthropic",
+      "modelsPath": "models",
+      "evidence": "user-configured"
+    },
+    {
+      "id": "custom-google",
+      "name": "自定义 · Gemini 兼容",
+      "api": "google-generative-ai",
+      "baseUrl": "",
+      "authMode": "x-goog-api-key",
+      "discovery": "google",
+      "modelsPath": "models",
+      "evidence": "user-configured"
+    },
+    {
+      "id": "cc-switch-kimi-global",
+      "name": "Kimi Global",
+      "family": "kimi",
+      "planKey": "payg",
+      "regionKey": "intl",
+      "category": "cn_official",
+      "aliases": "月之暗面 moonshot",
+      "api": "openai-completions",
+      "baseUrl": "https://api.moonshot.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://platform.kimi.ai/",
+      "apiKeyUrl": "https://platform.kimi.ai/console/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "kimi-k2.7-code-highspeed",
+          "name": "Kimi K2.7 Code HighSpeed"
+        },
+        {
+          "id": "kimi-k2.6",
+          "name": "Kimi K2.6"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-kimi-for-coding",
+      "name": "Kimi For Coding",
+      "family": "kimi",
+      "planKey": "coding",
+      "regionKey": "cn",
+      "category": "cn_official",
+      "aliases": "月之暗面 moonshot",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.kimi.com/coding",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.kimi.com/code/",
+      "apiKeyUrl": "https://platform.kimi.com/console/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "kimi-for-coding",
+          "name": "Kimi For Coding"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-kimi-for-coding-global",
+      "name": "Kimi For Coding Global",
+      "family": "kimi",
+      "planKey": "coding",
+      "regionKey": "intl",
+      "category": "cn_official",
+      "aliases": "月之暗面 moonshot",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.kimi.ai/coding",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.kimi.ai/code",
+      "apiKeyUrl": "https://www.kimi.ai/code",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "kimi-for-coding",
+          "name": "Kimi For Coding"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-packy-code",
+      "name": "PackyCode",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://www.packyapi.ai",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.packyapi.ai/",
+      "apiKeyUrl": "https://www.packyapi.ai/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-fable-5-1",
+          "name": "Claude Fable 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-apinebula",
+      "name": "APINebula",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://apinebula.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://apinebula.ai/",
+      "apiKeyUrl": "https://apinebula.ai/VjM74M",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-aicode-mirror",
+      "name": "AICodeMirror",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.aicodemirror.ai/api/claudecode",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.aicodemirror.ai/",
+      "apiKeyUrl": "https://www.aicodemirror.ai/register?invitecode=9915W3",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-hao-ai",
+      "name": "hao.ai",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.hao.ai/anthropic",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://hao.ai/",
+      "apiKeyUrl": "https://hao.ai/invite/DTBZS3OR",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "anthropic/claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "anthropic/claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-fenno-ai",
+      "name": "FennoAI",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.fenno.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://api.fenno.ai/",
+      "apiKeyUrl": "https://api.fenno.ai/register?redirect=%2Fpurchase%3Ftab%3Dsubscription%26group%3D16",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-run-api",
+      "name": "RunAPI",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://runapi.co",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://runapi.co/",
+      "apiKeyUrl": "https://runapi.co/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "claude-haiku-4-5",
+          "name": "Claude Haiku 4.5 (latest)"
+        },
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-fable-5-1",
+          "name": "Claude Fable 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-open-model",
+      "name": "OpenModel",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.openmodel.ai",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.openmodel.ai/",
+      "apiKeyUrl": "https://www.openmodel.ai/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-everyapi",
+      "name": "EveryAPI",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-responses",
+      "baseUrl": "https://api.everyapi.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "responses",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://everyapi.ai/",
+      "apiKeyUrl": "https://app.everyapi.ai/signin",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-sol",
+          "name": "GPT-6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-grooroute-pro",
+      "name": "GrooRoute Pro",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://grooroute.pro",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://grooroute.pro/",
+      "apiKeyUrl": "https://grooroute.pro/sign-up",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-dit-ai",
+      "name": "DIT.ai",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.dit.ai",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://dit.ai/",
+      "apiKeyUrl": "https://dit.ai/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-buytoken",
+      "name": "BuyToken",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.buytoken.work",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://buytoken.work/",
+      "apiKeyUrl": "https://buytoken.work/sign-up",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-vapi",
+      "name": "V-API",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.gpt.ge",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://gpt.ge/",
+      "apiKeyUrl": "https://gpt.ge/signup",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-tokenfactory",
+      "name": "TokenFactory",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "词元工厂 詞元工廠 token factory",
+      "api": "openai-completions",
+      "baseUrl": "https://api.tokenfactory.cn/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://tokenfactory.cn/",
+      "apiKeyUrl": "https://console.tokenfactory.cn/login",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "deepseek-v4-pro-0813",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "deepseek-v4.1-flash",
+          "name": "DeepSeek V4.1 Flash"
+        },
+        {
+          "id": "glm-5.3-flash",
+          "name": "GLM-5.3 Flash"
+        },
+        {
+          "id": "qwen3.8-flash",
+          "name": "Qwen3.8 Flash"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-fluxa-token-plan",
+      "name": "FluxA Token Plan",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.baiduqianfan.ai/v2/tokenplan/team",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://agentmarket.fluxapay.xyz/",
+      "apiKeyUrl": "https://agentmarket.fluxapay.xyz/marketplace/tokenplans",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "deepseek-v4-flash-0731",
+          "name": "DeepSeek V4 Flash 0731"
+        },
+        {
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash"
+        },
+        {
+          "id": "deepseek-v3.2",
+          "name": "DeepSeek V3.2"
+        },
+        {
+          "id": "glm-5.2",
+          "name": "GLM-5.2"
+        },
+        {
+          "id": "glm-5.1",
+          "name": "GLM-5.1"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM-5"
+        },
+        {
+          "id": "kimi-k2.6",
+          "name": "Kimi K2.6"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-aigo-code",
+      "name": "AIGoCode",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.aigocode.dev",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://aigocode.net/",
+      "apiKeyUrl": "https://aigocode.net/invite/CC-SWITCH",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-qiniu",
+      "name": "Qiniu",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.qnaigc.com/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://s.qiniu.com/nMvAvy",
+      "apiKeyUrl": "https://s.qiniu.com/nMvAvy",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        },
+        {
+          "id": "moonshotai/kimi-k3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "z-ai/glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "z-ai/glm-5.3-flash",
+          "name": "GLM-5.3 Flash"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-aicoding",
+      "name": "AICoding",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.aicoding.inc",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://aicoding.inc/",
+      "apiKeyUrl": "https://aicoding.inc/i/CCSWITCH",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-sub-router",
+      "name": "SubRouter",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://subrouter.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://subrouter.ai/",
+      "apiKeyUrl": "https://subrouter.ai/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-shengsuanyun",
+      "name": "Shengsuanyun",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://router.shengsuanyun.com/api",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.shengsuanyun.com/?from=CH_4HHXMRYF",
+      "apiKeyUrl": "https://www.shengsuanyun.com/?from=CH_4HHXMRYF",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "anthropic/claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "anthropic/claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "anthropic/claude-opus-5.5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "anthropic/claude-fable-5.1",
+          "name": "Claude Fable 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-88api",
+      "name": "88API",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.88api.ai",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://88api.ai/",
+      "apiKeyUrl": "https://88api.ai/sign-up",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-4-5",
+          "name": "Claude Haiku 4.5 (latest)"
+        },
+        {
+          "id": "claude-fable-5-1",
+          "name": "Claude Fable 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-apikey-fun",
+      "name": "APIKEY.FUN",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.apikey.fan",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://apikey.fan/",
+      "apiKeyUrl": "https://apikey.fan/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-haiku-4-5",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-9527-code",
+      "name": "9527CODE",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://9527.codes",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://9527.codes/",
+      "apiKeyUrl": "https://9527.codes/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-haiku-4-5",
+          "name": "Claude Haiku 4.5 (latest)"
+        },
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-fable-5-1",
+          "name": "Claude Fable 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-code0",
+      "name": "Code0",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://code0.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://code0.ai/",
+      "apiKeyUrl": "https://code0.ai/agent/register/B2XHxGjGmRvqgznY",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-teamo-router",
+      "name": "TeamoRouter",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.teamorouter.cn/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://teamorouter.cn/",
+      "apiKeyUrl": "https://teamorouter.cn/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-ppio",
+      "name": "PPIO",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.ppio.com/openai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://ppio.com/",
+      "apiKeyUrl": "https://ppio.com/activity/ccswitch",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "deepseek/deepseek-v4-flash-0731",
+          "name": "Deepseek V4 Flash 0731"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-claude-cn",
+      "name": "ClaudeCN",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://claudecn.top",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://claudecn.top/",
+      "apiKeyUrl": "https://claudecn.ai/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "claude-haiku-4-5",
+          "name": "Claude Haiku 4.5 (latest)"
+        },
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-fable-5-1",
+          "name": "Claude Fable 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-agentplan",
+      "name": "火山 Agent Plan",
+      "family": "volcengine",
+      "planKey": "agentPlan",
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "火山 豆包 doubao volcengine 方舟 ark 字节",
+      "api": "openai-completions",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/plan/v3",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.volcengine.com/activity/agentplan?ac=MMAP8JTTCAQ2&rc=6J6FV5N2",
+      "apiKeyUrl": "https://www.volcengine.com/activity/agentplan?ac=MMAP8JTTCAQ2&rc=6J6FV5N2",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "ark-code-latest",
+          "name": "Ark Code Latest"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-codingplan",
+      "name": "火山 Coding Plan",
+      "family": "volcengine",
+      "planKey": "codingPlan",
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "火山 豆包 doubao volcengine 方舟 ark 字节",
+      "api": "openai-completions",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/coding/v3",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.volcengine.com/activity/codingplan?ac=MMAP8JTTCAQ2&rc=6J6FV5N2",
+      "apiKeyUrl": "https://www.volcengine.com/activity/codingplan?ac=MMAP8JTTCAQ2&rc=6J6FV5N2",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "ark-code-latest",
+          "name": "Ark Code Latest"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-byte-plus",
+      "name": "BytePlus",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://ark.ap-southeast.bytepluses.com/api/coding/v3",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.byteplus.com/en/product/modelark",
+      "apiKeyUrl": "https://www.byteplus.com/en/product/modelark",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "ark-code-latest",
+          "name": "Ark Code Latest"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-dou-bao-seed",
+      "name": "Volcengine Doubao",
+      "family": "volcengine",
+      "planKey": "payg",
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://console.volcengine.com/ark/region:ark+cn-beijing/apiKey?apikey=%7B%7D",
+      "apiKeyUrl": "https://console.volcengine.com/ark/region:ark+cn-beijing/apiKey?apikey=%7B%7D",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "doubao-seed-2-1-pro-260628",
+          "name": "Doubao Seed 2.1 Pro"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-a6-api",
+      "name": "A6API",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.a6api.com/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.a6api.com/",
+      "apiKeyUrl": "https://a6api.com/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-ccsub",
+      "name": "CCSub",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://www.ccsub.net/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.ccsub.net/",
+      "apiKeyUrl": "https://www.ccsub.net/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-sssai-code",
+      "name": "SSSAiCode",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://node-hk.sssaicodeapi.com/api",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://sssaicodeapi.com/",
+      "apiKeyUrl": "https://sssaicodeapi.com/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-sole-api",
+      "name": "SoleAPI",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://soleapi.com",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://soleapi.com/",
+      "apiKeyUrl": "https://soleapi.com/r/ccswitch",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "name": "Claude Haiku 4.5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-micu",
+      "name": "Micu",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://www.micuapi.ai",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.micuapi.ai/",
+      "apiKeyUrl": "https://www.micuapi.ai/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-right-code",
+      "name": "RightCode",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "openai-responses",
+      "baseUrl": "https://www.rightapi.ai/codex/v1",
+      "authMode": "bearer",
+      "inferencePath": "responses",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.rightapi.ai/",
+      "apiKeyUrl": "https://www.rightapi.ai/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-cubence",
+      "name": "Cubence",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.cubence.com",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://cubence.com/",
+      "apiKeyUrl": "https://cubence.com/signup?code=CCSWITCH&source=ccs",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-crazy-router",
+      "name": "CrazyRouter",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://cn.crazyrouter.com",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.crazyrouter.com/",
+      "apiKeyUrl": "https://www.crazyrouter.com/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "claude-fable-5-1",
+          "name": "Claude Fable 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-dmxapi",
+      "name": "DMXAPI",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://www.dmxapi.cn",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.dmxapi.cn/",
+      "apiKeyUrl": "https://www.dmxapi.cn/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-sudo-code-chat",
+      "name": "SudoCode.chat",
+      "family": "sudocode",
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "openai-responses",
+      "baseUrl": "https://api.sudocode.chat/v1",
+      "authMode": "bearer",
+      "inferencePath": "responses",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://sudocode.chat/",
+      "apiKeyUrl": "https://sudocode.chat/sign-up",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-sol",
+          "name": "GPT-6 Sol"
+        },
+        {
+          "id": "gpt-6-luna",
+          "name": "GPT-6 Luna"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-sudo-code-us",
+      "name": "SudoCode.us",
+      "family": "sudocode",
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "openai-responses",
+      "baseUrl": "https://sudocode.us/v1",
+      "authMode": "bearer",
+      "inferencePath": "responses",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://sudocode.us/",
+      "apiKeyUrl": "https://sudocode.us/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-sol",
+          "name": "GPT-6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-modelflare",
+      "name": "Modelflare",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-responses",
+      "baseUrl": "https://modelflare.dev/v1",
+      "authMode": "bearer",
+      "inferencePath": "responses",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://modelflare.dev/",
+      "apiKeyUrl": "https://modelflare.dev/sign-up",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-sol",
+          "name": "GPT-6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-alltokens",
+      "name": "AllTokens",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-responses",
+      "baseUrl": "https://alltokens.cc/v1",
+      "authMode": "bearer",
+      "inferencePath": "responses",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://alltokens.cc/",
+      "apiKeyUrl": "https://alltokens.cc/register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-sol",
+          "name": "GPT-6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-alltokens-si",
+      "name": "AllTokens SI",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://alltokens.si/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://alltokens.si/",
+      "apiKeyUrl": "https://alltokens.si/enterprise-register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-sol",
+          "name": "GPT-6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-amux",
+      "name": "Amux",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.amux.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://amux.ai/",
+      "apiKeyUrl": "https://amux.ai/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-atlas-cloud",
+      "name": "AtlasCloud",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.atlascloud.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.atlascloud.ai/console/coding-plan",
+      "apiKeyUrl": "https://www.atlascloud.ai/console/coding-plan",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "zai-org/glm-5.1",
+          "name": "GLM 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-soshow",
+      "name": "Soshow",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://maas.so-show.com",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://aimarket.so-show.com/",
+      "apiKeyUrl": "https://aimarket.so-show.com/workbench/access-key",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-zhipu-glm",
+      "name": "Zhipu GLM",
+      "family": "zhipu",
+      "planKey": null,
+      "regionKey": "cn",
+      "category": "cn_official",
+      "aliases": "智谱 glm bigmodel z.ai chatglm",
+      "api": "openai-completions",
+      "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://open.bigmodel.cn/",
+      "apiKeyUrl": "https://www.bigmodel.cn/claude-code",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "glm-5.3-flash",
+          "name": "GLM-5.3 Flash"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-zhipu-glm-en",
+      "name": "Zhipu GLM en",
+      "family": "zhipu",
+      "planKey": null,
+      "regionKey": "intl",
+      "category": "cn_official",
+      "aliases": "智谱 glm bigmodel z.ai chatglm",
+      "api": "openai-completions",
+      "baseUrl": "https://api.z.ai/api/coding/paas/v4",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://z.ai/",
+      "apiKeyUrl": "https://z.ai/subscribe",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "glm-5.3-flash",
+          "name": "GLM-5.3 Flash"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-qianwenai-token-plan",
+      "name": "千问AI平台 Token Plan",
+      "family": "qianwen",
+      "planKey": "tokenPlan",
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "千问 通义 阿里 百炼 bailian aliyun qwen",
+      "api": "openai-completions",
+      "baseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://platform.qianwenai.com/pricing/token-plan",
+      "apiKeyUrl": "https://platform.qianwenai.com/home/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "qwen3.8-max",
+          "name": "Qwen3.8 Max"
+        },
+        {
+          "id": "qwen3.8-flash",
+          "name": "Qwen3.8 Flash"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-qwencloud-coding",
+      "name": "QwenCloud For Coding",
+      "family": "qwencloud",
+      "planKey": "coding",
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "通义 阿里 qwen",
+      "api": "anthropic-messages",
+      "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.qwencloud.com/",
+      "apiKeyUrl": "https://home.qwencloud.com/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "qwen3.7-plus",
+          "name": "Qwen3.7 Plus"
+        },
+        {
+          "id": "qwen3-coder-plus",
+          "name": "Qwen3 Coder Plus"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-qwencloud-token-plan",
+      "name": "QwenCloud Token Plan",
+      "family": "qwencloud",
+      "planKey": "tokenPlan",
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "通义 阿里 qwen",
+      "api": "openai-completions",
+      "baseUrl": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.qwencloud.com/pricing/token-plan",
+      "apiKeyUrl": "https://home.qwencloud.com/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "qwen3.8-max",
+          "name": "Qwen3.8 Max"
+        },
+        {
+          "id": "qwen3.8-flash",
+          "name": "Qwen3.8 Flash"
+        },
+        {
+          "id": "qwen3.7-max",
+          "name": "Qwen3.7 Max"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-step-fun",
+      "name": "StepFun",
+      "family": "stepfun",
+      "planKey": null,
+      "regionKey": "cn",
+      "category": "cn_official",
+      "aliases": "阶跃星辰",
+      "api": "openai-completions",
+      "baseUrl": "https://api.stepfun.com/step_plan/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://platform.stepfun.com/step-plan",
+      "apiKeyUrl": "https://platform.stepfun.com/interface-key",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "step-3.5-flash-2603",
+          "name": "Step 3.5 Flash 2603"
+        },
+        {
+          "id": "step-3.5-flash",
+          "name": "Step 3.5 Flash"
+        },
+        {
+          "id": "step-3.7-flash",
+          "name": "Step 3.7 Flash"
+        },
+        {
+          "id": "step-5-preview",
+          "name": "Step 5 Preview"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-step-fun-en",
+      "name": "StepFun en",
+      "family": "stepfun",
+      "planKey": null,
+      "regionKey": "intl",
+      "category": "cn_official",
+      "aliases": "阶跃星辰",
+      "api": "openai-completions",
+      "baseUrl": "https://api.stepfun.ai/step_plan/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://platform.stepfun.ai/step-plan",
+      "apiKeyUrl": "https://platform.stepfun.ai/interface-key",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "step-3.5-flash-2603",
+          "name": "Step 3.5 Flash 2603"
+        },
+        {
+          "id": "step-3.5-flash",
+          "name": "Step 3.5 Flash"
+        },
+        {
+          "id": "step-3.7-flash",
+          "name": "Step 3.7 Flash"
+        },
+        {
+          "id": "step-5-preview",
+          "name": "Step 5 Preview"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-step-fun-step-plan",
+      "name": "StepFun Step Plan",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.stepfun.com/step_plan/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://platform.stepfun.com/docs/zh/step-plan/overview",
+      "apiKeyUrl": "https://platform.stepfun.com/interface-key",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "step-3.5-flash",
+          "name": "Step 3.5 Flash"
+        },
+        {
+          "id": "step-3.7-flash",
+          "name": "Step 3.7 Flash"
+        },
+        {
+          "id": "step-5-preview",
+          "name": "Step 5 Preview"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-model-scope",
+      "name": "ModelScope",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "魔搭",
+      "api": "openai-completions",
+      "baseUrl": "https://api-inference.modelscope.cn/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://modelscope.cn/",
+      "apiKeyUrl": "https://modelscope.cn/my/myaccesstoken",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "ZhipuAI/GLM-5.2",
+          "name": "GLM-5.2"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-streamlake",
+      "name": "StreamLake",
+      "family": "streamlake",
+      "planKey": null,
+      "regionKey": "cn",
+      "category": "cn_official",
+      "aliases": "快手 万擎 vanchin kat-coder kwaikat",
+      "api": "openai-completions",
+      "baseUrl": "https://wanqing.streamlakeapi.com/api/gateway/v1/endpoints",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.streamlake.com/",
+      "apiKeyUrl": "https://console.streamlake.com/console/wanqing/api-key",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "kat-coder-pro-v2.5",
+          "name": "KAT-Coder Pro V2.5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-kat-coder",
+      "name": "StreamLake en",
+      "family": "streamlake",
+      "planKey": null,
+      "regionKey": "intl",
+      "category": "cn_official",
+      "aliases": "快手 万擎 vanchin kat-coder kwaikat",
+      "api": "openai-completions",
+      "baseUrl": "https://vanchin.streamlake.ai/api/gateway/v1/endpoints",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://console.streamlake.ai/",
+      "apiKeyUrl": "https://console.streamlake.ai/console/api-key",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "kat-coder-pro-v2.5",
+          "name": "KAT-Coder Pro V2.5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-longcat",
+      "name": "Longcat",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "美团",
+      "api": "openai-completions",
+      "baseUrl": "https://api.longcat.chat/openai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://longcat.chat/platform",
+      "apiKeyUrl": "https://longcat.chat/platform/api_keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "LongCat-2.0",
+          "name": "LongCat 2.0"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-mini-max",
+      "name": "MiniMax",
+      "family": "minimax",
+      "planKey": null,
+      "regionKey": "cn",
+      "category": "cn_official",
+      "aliases": "海螺",
+      "api": "openai-completions",
+      "baseUrl": "https://api.minimax.cn/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://platform.minimax.cn/",
+      "apiKeyUrl": "https://platform.minimax.cn/subscribe/token-plan",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "MiniMax-M3.1-Flash",
+          "name": "MiniMax-M3.1-Flash"
+        },
+        {
+          "id": "MiniMax-M3",
+          "name": "MiniMax-M3"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-mini-max-en",
+      "name": "MiniMax en",
+      "family": "minimax",
+      "planKey": null,
+      "regionKey": "intl",
+      "category": "cn_official",
+      "aliases": "海螺",
+      "api": "openai-completions",
+      "baseUrl": "https://api.minimax.io/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://platform.minimax.io/",
+      "apiKeyUrl": "https://platform.minimax.io/subscribe/coding-plan",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "MiniMax-M3.1-Flash",
+          "name": "MiniMax-M3.1-Flash"
+        },
+        {
+          "id": "MiniMax-M3",
+          "name": "MiniMax-M3"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-bai-ling",
+      "name": "BaiLing",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "蚂蚁 百灵 ling",
+      "api": "openai-completions",
+      "baseUrl": "https://api.ant-ling.com/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://developer.ant-ling.com/zh-CN/docs/",
+      "apiKeyUrl": "https://chat.ant-ling.com/open",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "Ling-2.6-1T",
+          "name": "Ling 2.6-1T"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-open-code-go",
+      "name": "OpenCode Go",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://opencode.ai/zen/go/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://opencode.ai/go",
+      "apiKeyUrl": "https://opencode.ai/go",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "glm-5.2",
+          "name": "GLM 5.2"
+        },
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code"
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash"
+        },
+        {
+          "id": "mimo-v2.5-pro",
+          "name": "MiMo-V2.5-Pro"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-ai-hub-mix",
+      "name": "AiHubMix",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://aihubmix.com",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://aihubmix.com/",
+      "apiKeyUrl": "https://aihubmix.com/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-fable-5-1",
+          "name": "Claude Fable 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-cherry-in",
+      "name": "CherryIN",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://open.cherryin.net",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://open.cherryin.ai/",
+      "apiKeyUrl": "https://open.cherryin.ai/console/token",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "anthropic/claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "anthropic/claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "anthropic/claude-fable-5.1",
+          "name": "Claude Fable 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-open-router",
+      "name": "OpenRouter",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://openrouter.ai/api",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://openrouter.ai/",
+      "apiKeyUrl": "https://openrouter.ai/keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "anthropic/claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "anthropic/claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "anthropic/claude-opus-5.5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "anthropic/claude-fable-5.1",
+          "name": "Claude Fable 5.1"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-the-router",
+      "name": "TheRouter",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.therouter.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://therouter.ai/",
+      "apiKeyUrl": "https://dashboard.therouter.ai/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "anthropic/claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "openai/gpt-5.3-codex",
+          "name": "GPT-5.3 Codex"
+        },
+        {
+          "id": "openai/gpt-5.2",
+          "name": "GPT-5.2"
+        },
+        {
+          "id": "google/gemini-3.6-flash",
+          "name": "Gemini 3.6 Flash"
+        },
+        {
+          "id": "qwen/qwen3-coder-480b",
+          "name": "Qwen3 Coder 480B"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-baseten",
+      "name": "Baseten",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://inference.baseten.co/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.baseten.co/",
+      "apiKeyUrl": "https://app.baseten.co/settings/api_keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "zai-org/GLM-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "moonshotai/Kimi-K3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "zai-org/GLM-5.3-Flash",
+          "name": "GLM-5.3 Flash"
+        },
+        {
+          "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+          "name": "DeepSeek V4.1 Flash"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-novita-ai",
+      "name": "Novita AI",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.novita.ai/openai",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://novita.ai/",
+      "apiKeyUrl": "https://novita.ai/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "zai-org/glm-5.1",
+          "name": "GLM-5.1"
+        },
+        {
+          "id": "zai-org/glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "zai-org/glm-5.3-flash",
+          "name": "GLM-5.3 Flash"
+        },
+        {
+          "id": "moonshotai/kimi-k3",
+          "name": "Kimi K3"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-nvidia",
+      "name": "Nvidia",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://integrate.api.nvidia.com/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://build.nvidia.com/",
+      "apiKeyUrl": "https://build.nvidia.com/settings/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "moonshotai/kimi-k3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "z-ai/glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "z-ai/glm-5.3-flash",
+          "name": "GLM-5.3 Flash"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-ollama-cloud",
+      "name": "Ollama Cloud",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "cloud_provider",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://ollama.com/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://ollama.com/",
+      "apiKeyUrl": "https://ollama.com/settings/keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "glm-5.3-flash",
+          "name": "GLM-5.3 Flash"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "deepseek-v4-pro:0813",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "minimax-m3",
+          "name": "MiniMax-M3"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-vllm",
+      "name": "vLLM",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "local",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "http://localhost:8000/v1",
+      "authMode": "none",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://vllm.ai/",
+      "apiKeyUrl": null,
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "Qwen/Qwen3.6-27B",
+          "name": "Qwen3.6 27B"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-meta",
+      "name": "Meta Model API",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "cn_official",
+      "aliases": "muse facebook",
+      "api": "openai-completions",
+      "baseUrl": "https://api.meta.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://dev.meta.ai/",
+      "apiKeyUrl": "https://dev.meta.ai/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "muse-wonder-1.0",
+          "name": "Muse Wonder 1.0"
+        },
+        {
+          "id": "muse-spark-1.3",
+          "name": "Muse Spark 1.3"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-deepinfra",
+      "name": "DeepInfra",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "deep infra",
+      "api": "openai-completions",
+      "baseUrl": "https://api.deepinfra.com/v1/openai",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://deepinfra.com/",
+      "apiKeyUrl": "https://deepinfra.com/dash/api_keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+          "name": "DeepSeek V4 Flash 0731"
+        },
+        {
+          "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
+          "name": "DeepSeek V4 Pro 0813"
+        },
+        {
+          "id": "moonshotai/Kimi-K3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "zai-org/GLM-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "zai-org/GLM-5.2",
+          "name": "GLM-5.2"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-vercel-ai-gateway",
+      "name": "Vercel AI Gateway",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://ai-gateway.vercel.sh/coding-agent/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://vercel.com/ai-gateway",
+      "apiKeyUrl": "https://vercel.com/d?to=%2F%5Bteam%5D%2F%7E%2Fai-gateway%2Fapi-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "anthropic/claude-opus-5.5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "anthropic/claude-sonnet-5.5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "openai/gpt-6-astra",
+          "name": "GPT-6 Astra"
+        },
+        {
+          "id": "google/gemini-3.8-flash",
+          "name": "Gemini 3.8 Flash"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-nebius-token-factory",
+      "name": "Nebius Token Factory",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "ai studio nbis",
+      "api": "openai-completions",
+      "baseUrl": "https://api.tokenfactory.nebius.com/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://nebius.com/token-factory",
+      "apiKeyUrl": "https://tokenfactory.nebius.com/project/api-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "zai-org/GLM-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "zai-org/GLM-5.3-Flash",
+          "name": "GLM-5.3 Flash"
+        },
+        {
+          "id": "moonshotai/Kimi-K3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "moonshotai/Kimi-K2.7-Code",
+          "name": "Kimi K2.7 Code"
+        },
+        {
+          "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
+          "name": "DeepSeek V4 Pro 0813"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-groq",
+      "name": "Groq",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://groq.com/",
+      "apiKeyUrl": "https://console.groq.com/keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "openai/gpt-oss-120b",
+          "name": "GPT-OSS 120B"
+        },
+        {
+          "id": "openai/gpt-oss-20b",
+          "name": "GPT-OSS 20B"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-sambanova",
+      "name": "SambaNova",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "cloud_provider",
+      "aliases": "sambacloud",
+      "api": "openai-completions",
+      "baseUrl": "https://api.sambanova.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://sambanova.ai/",
+      "apiKeyUrl": "https://cloud.sambanova.ai/apis",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "MiniMax-M3",
+          "name": "MiniMax-M3"
+        },
+        {
+          "id": "gpt-oss-120b",
+          "name": "GPT-OSS 120B"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-digitalocean",
+      "name": "DigitalOcean",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "cloud_provider",
+      "aliases": "gradient do digital ocean",
+      "api": "openai-completions",
+      "baseUrl": "https://inference.do-ai.run/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.digitalocean.com/products/ai-platform",
+      "apiKeyUrl": "https://cloud.digitalocean.com/model-studio/manage-keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "deepseek-v4-pro-0813",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "anthropic-claude-sonnet-5.5",
+          "name": "Claude Sonnet 5.5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-hugging-face",
+      "name": "Hugging Face",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "hf huggingface 抱抱脸",
+      "api": "openai-completions",
+      "baseUrl": "https://router.huggingface.co/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://huggingface.co/inference/models",
+      "apiKeyUrl": "https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "zai-org/GLM-5.3:baseten",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "zai-org/GLM-5.3-Flash:baseten",
+          "name": "GLM-5.3 Flash"
+        },
+        {
+          "id": "moonshotai/Kimi-K3:baseten",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "deepseek-ai/DeepSeek-V4-Pro-0813:baseten",
+          "name": "DeepSeek V4 Pro"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-microsoft-foundry",
+      "name": "Microsoft Foundry",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "cloud_provider",
+      "aliases": "azure 微软 ai foundry claude",
+      "api": "anthropic-messages",
+      "baseUrl": "https://YOUR_RESOURCE_NAME.services.ai.azure.com/anthropic",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://azure.microsoft.com/en-us/products/ai-foundry",
+      "apiKeyUrl": "https://ai.azure.com/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-5-5",
+          "name": "Claude Haiku 5.5"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-pipellm",
+      "name": "PIPELLM",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://cc-api.pipellm.ai",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://code.pipellm.ai/",
+      "apiKeyUrl": "https://code.pipellm.ai/login",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5",
+          "name": "claude-opus-5"
+        },
+        {
+          "id": "claude-sonnet-5",
+          "name": "claude-sonnet-5"
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "name": "claude-haiku-4-5-20251001"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-aicode-with",
+      "name": "AICodeWith",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-responses",
+      "baseUrl": "https://api.aicodewith.ai/v1",
+      "authMode": "bearer",
+      "inferencePath": "responses",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://aicodewith.ai/",
+      "apiKeyUrl": "https://aicodewith.ai/login?tab=register",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "gpt-5.6-sol"
+        },
+        {
+          "id": "gpt-6-sol",
+          "name": "GPT-6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-e-flow-code",
+      "name": "E-FlowCode",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "third_party",
+      "aliases": "",
+      "api": "openai-responses",
+      "baseUrl": "https://e-flowcode.cc/v1",
+      "authMode": "bearer",
+      "inferencePath": "responses",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://e-flowcode.cc/",
+      "apiKeyUrl": "https://e-flowcode.cc/",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "gpt-5.2-codex",
+          "name": "gpt-5.2-codex"
+        },
+        {
+          "id": "gpt-5.3-codex",
+          "name": "gpt-5.3-codex"
+        },
+        {
+          "id": "gpt-6-sol",
+          "name": "GPT-6 Sol"
+        },
+        {
+          "id": "gpt-6-astra",
+          "name": "GPT-6 Astra"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-tencent-token-plan",
+      "name": "Tencent Token Plan",
+      "family": "tencent",
+      "planKey": "tokenPlan",
+      "regionKey": "cn",
+      "category": "cn_official",
+      "aliases": "腾讯 混元 hunyuan",
+      "api": "openai-completions",
+      "baseUrl": "https://api.lkeap.cloud.tencent.com/plan/v3",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://cloud.tencent.com/product/tokenhub",
+      "apiKeyUrl": "https://console.cloud.tencent.com/tokenhub/tokenplan",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "tc-code-latest",
+          "name": "Auto"
+        },
+        {
+          "id": "deepseek-v4-flash-202605",
+          "name": "DeepSeek V4 Flash Official"
+        },
+        {
+          "id": "deepseek-v4-pro-202606",
+          "name": "DeepSeek V4 Pro Official"
+        },
+        {
+          "id": "minimax-m2.7",
+          "name": "MiniMax-M2.7"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM-5"
+        },
+        {
+          "id": "glm-5.1",
+          "name": "GLM-5.1"
+        },
+        {
+          "id": "glm-5.2",
+          "name": "GLM-5.2"
+        },
+        {
+          "id": "hy3",
+          "name": "Hy3"
+        },
+        {
+          "id": "hy3-preview",
+          "name": "Hy3 Preview"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-tencent-token-plan-intl",
+      "name": "Tencent Token Plan (Intl)",
+      "family": "tencent",
+      "planKey": "tokenPlan",
+      "regionKey": "intl",
+      "category": "cn_official",
+      "aliases": "腾讯 混元 hunyuan",
+      "api": "openai-completions",
+      "baseUrl": "https://tokenhub-intl.tencentcloudmaas.com/plan/v3",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.tencentcloud.com/products/tokenhub",
+      "apiKeyUrl": "https://console.tencentcloud.com/tokenhub/tokenplan",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "auto",
+          "name": "Auto"
+        },
+        {
+          "id": "glm-5.2",
+          "name": "GLM-5.2"
+        },
+        {
+          "id": "kimi-k2.6",
+          "name": "Kimi K2.6"
+        },
+        {
+          "id": "deepseek-v4-pro-202606",
+          "name": "DeepSeek V4 Pro Official"
+        },
+        {
+          "id": "deepseek-v4-flash-202605",
+          "name": "DeepSeek V4 Flash Official"
+        },
+        {
+          "id": "minimax-m3",
+          "name": "MiniMax-M3"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-tencent-token-plan-enterprise-pro",
+      "name": "Tencent Token Plan Enterprise Pro",
+      "family": "tencent",
+      "planKey": "enterprisePro",
+      "regionKey": "cn",
+      "category": "cn_official",
+      "aliases": "腾讯 混元 hunyuan",
+      "api": "openai-completions",
+      "baseUrl": "https://tokenhub.tencentmaas.com/plan/v3",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://cloud.tencent.com/product/tokenhub",
+      "apiKeyUrl": "https://console.cloud.tencent.com/tokenhub/tokenplan-e",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "auto",
+          "name": "Auto"
+        },
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "glm-5.2",
+          "name": "GLM-5.2"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM-5"
+        },
+        {
+          "id": "glm-5.1",
+          "name": "GLM-5.1"
+        },
+        {
+          "id": "glm-5-turbo",
+          "name": "GLM-5 Turbo"
+        },
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code"
+        },
+        {
+          "id": "kimi-k2.7-code-highspeed",
+          "name": "Kimi K2.7 Code HighSpeed"
+        },
+        {
+          "id": "kimi-k2.6",
+          "name": "Kimi K2.6"
+        },
+        {
+          "id": "minimax-m2.7",
+          "name": "MiniMax-M2.7"
+        },
+        {
+          "id": "minimax-m3",
+          "name": "MiniMax-M3"
+        },
+        {
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash"
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "deepseek-v4-flash-0731",
+          "name": "DeepSeek V4 Flash 0731 GA"
+        },
+        {
+          "id": "deepseek-v4-pro-0813",
+          "name": "DeepSeek V4 Pro 0813 GA"
+        },
+        {
+          "id": "deepseek-v4-flash-202605",
+          "name": "DeepSeek V4 Flash Official"
+        },
+        {
+          "id": "deepseek-v4-pro-202606",
+          "name": "DeepSeek V4 Pro Official"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-tencent-token-plan-enterprise-pro-intl",
+      "name": "Tencent Token Plan Enterprise Pro (Intl)",
+      "family": "tencent",
+      "planKey": "enterprisePro",
+      "regionKey": "intl",
+      "category": "cn_official",
+      "aliases": "腾讯 混元 hunyuan",
+      "api": "openai-completions",
+      "baseUrl": "https://tokenhub-intl.tencentcloudmaas.com/plan/v3",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.tencentcloud.com/products/tokenhub",
+      "apiKeyUrl": "https://console.tencentcloud.com/tokenhub/tokenplan-e",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "auto",
+          "name": "Auto"
+        },
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "glm-5.2",
+          "name": "GLM-5.2"
+        },
+        {
+          "id": "minimax-m3",
+          "name": "MiniMax-M3"
+        },
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code"
+        },
+        {
+          "id": "kimi-k2.7-code-highspeed",
+          "name": "Kimi K2.7 Code HighSpeed"
+        },
+        {
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash"
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "deepseek-v4-flash-0731",
+          "name": "DeepSeek V4 Flash 0731 GA"
+        },
+        {
+          "id": "deepseek-v4-pro-0813",
+          "name": "DeepSeek V4 Pro 0813 GA"
+        },
+        {
+          "id": "deepseek-v4-flash-202605",
+          "name": "DeepSeek V4 Flash Official"
+        },
+        {
+          "id": "deepseek-v4-pro-202606",
+          "name": "DeepSeek V4 Pro Official"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-tencent-token-plan-enterprise-lite",
+      "name": "Tencent Token Plan Enterprise Lite",
+      "family": "tencent",
+      "planKey": "enterpriseLite",
+      "regionKey": "cn",
+      "category": "cn_official",
+      "aliases": "腾讯 混元 hunyuan",
+      "api": "openai-completions",
+      "baseUrl": "https://tokenhub.tencentmaas.com/plan/v3",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://cloud.tencent.com/product/tokenhub",
+      "apiKeyUrl": "https://console.cloud.tencent.com/tokenhub/tokenplan-e",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "auto",
+          "name": "Auto"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-tencent-token-plan-enterprise-lite-intl",
+      "name": "Tencent Token Plan Enterprise Lite (Intl)",
+      "family": "tencent",
+      "planKey": "enterpriseLite",
+      "regionKey": "intl",
+      "category": "cn_official",
+      "aliases": "腾讯 混元 hunyuan",
+      "api": "openai-completions",
+      "baseUrl": "https://tokenhub-intl.tencentcloudmaas.com/plan/v3",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.tencentcloud.com/products/tokenhub",
+      "apiKeyUrl": "https://console.tencentcloud.com/tokenhub/tokenplan-e",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "auto",
+          "name": "Auto"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-tencent-tokenhub",
+      "name": "Tencent TokenHub",
+      "family": "tencent",
+      "planKey": "payg",
+      "regionKey": "cn",
+      "category": "cn_official",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://tokenhub.tencentmaas.com/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://cloud.tencent.com/product/tokenhub",
+      "apiKeyUrl": "https://console.cloud.tencent.com/tokenhub/apikey",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "hy4-preview",
+          "name": "Hy4 Preview"
+        },
+        {
+          "id": "hy3",
+          "name": "Hy3"
+        },
+        {
+          "id": "deepseek-v4-flash-202605",
+          "name": "DeepSeek V4 Flash Official"
+        },
+        {
+          "id": "deepseek-v4-pro-202606",
+          "name": "DeepSeek V4 Pro Official"
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash-vision-exp",
+          "name": "DeepSeek V4 Flash Vision Exp"
+        },
+        {
+          "id": "deepseek-v4-flash-0731",
+          "name": "DeepSeek V4 Flash 0731 GA"
+        },
+        {
+          "id": "deepseek-v4-pro-0813",
+          "name": "DeepSeek V4 Pro 0813 GA"
+        },
+        {
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash"
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "glm-5.3-flash",
+          "name": "GLM-5.3 Flash"
+        },
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "glm-5.2",
+          "name": "GLM-5.2"
+        },
+        {
+          "id": "glm-5.1",
+          "name": "GLM-5.1"
+        },
+        {
+          "id": "glm-5v-turbo",
+          "name": "GLM-5V Turbo"
+        },
+        {
+          "id": "glm-5-turbo",
+          "name": "GLM-5 Turbo"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM-5"
+        },
+        {
+          "id": "kimi-k2.7-code-highspeed",
+          "name": "Kimi K2.7 Code HighSpeed"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code"
+        },
+        {
+          "id": "kimi-k2.6",
+          "name": "Kimi K2.6"
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5"
+        },
+        {
+          "id": "minimax-m3",
+          "name": "MiniMax-M3"
+        },
+        {
+          "id": "minimax-m2.7",
+          "name": "MiniMax-M2.7"
+        },
+        {
+          "id": "mimo-v2.5-pro",
+          "name": "MiMo-V2.5-Pro"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-tencent-tokenhub-intl",
+      "name": "Tencent TokenHub (Intl)",
+      "family": "tencent",
+      "planKey": "payg",
+      "regionKey": "intl",
+      "category": "cn_official",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://tokenhub-intl.tencentcloudmaas.com/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.tencentcloud.com/products/tokenhub",
+      "apiKeyUrl": "https://console.tencentcloud.com/tokenhub/apikey",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "hy4-preview",
+          "name": "Hy4 Preview"
+        },
+        {
+          "id": "hy3",
+          "name": "Hy3"
+        },
+        {
+          "id": "deepseek-v4-flash-202605",
+          "name": "DeepSeek V4 Flash Official"
+        },
+        {
+          "id": "deepseek-v4-pro-202606",
+          "name": "DeepSeek V4 Pro Official"
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash-vision-exp",
+          "name": "DeepSeek V4 Flash Vision Exp"
+        },
+        {
+          "id": "deepseek-v4-flash-0731",
+          "name": "DeepSeek V4 Flash 0731 GA"
+        },
+        {
+          "id": "deepseek-v4-pro-0813",
+          "name": "DeepSeek V4 Pro 0813 GA"
+        },
+        {
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash"
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "deepseek-v3.2",
+          "name": "DeepSeek V3.2"
+        },
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "glm-5.3-flash",
+          "name": "GLM-5.3 Flash"
+        },
+        {
+          "id": "glm-5.2",
+          "name": "GLM-5.2"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM-5"
+        },
+        {
+          "id": "glm-5-turbo",
+          "name": "GLM-5 Turbo"
+        },
+        {
+          "id": "glm-5v-turbo",
+          "name": "GLM-5V Turbo"
+        },
+        {
+          "id": "glm-5.1",
+          "name": "GLM-5.1"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3"
+        },
+        {
+          "id": "kimi-k2.7-code-highspeed",
+          "name": "Kimi K2.7 Code HighSpeed"
+        },
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code"
+        },
+        {
+          "id": "kimi-k2.6",
+          "name": "Kimi K2.6"
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5"
+        },
+        {
+          "id": "minimax-m3",
+          "name": "MiniMax-M3"
+        },
+        {
+          "id": "minimax-m2.7",
+          "name": "MiniMax-M2.7"
+        },
+        {
+          "id": "mimo-v2.5-pro",
+          "name": "MiMo-V2.5-Pro"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-tuzi",
+      "name": "Tu-zi",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "兔子 兔子api tuzi",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.tu-zi.com",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://api.tu-zi.com/",
+      "apiKeyUrl": "https://api.tu-zi.com/token",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-haiku-4-5",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-moark",
+      "name": "模力方舟",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "openai-completions",
+      "baseUrl": "https://api.moark.com/v1",
+      "authMode": "bearer",
+      "inferencePath": "chat/completions",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://moark.com/",
+      "apiKeyUrl": "https://moark.com/dashboard/tokens",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "deepseek-v4-flash-0731",
+          "name": "DeepSeek V4 Flash"
+        },
+        {
+          "id": "DeepSeek-V4-Pro",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "id": "GLM-5.3",
+          "name": "GLM-5.3"
+        },
+        {
+          "id": "Kimi-K2.7-Code",
+          "name": "Kimi K2.7 Code"
+        },
+        {
+          "id": "qwen3-coder-plus",
+          "name": "Qwen3 Coder Plus"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-sorux-gpt",
+      "name": "SoruxGPT",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://ai.soruxgpt.com",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://ai.soruxgpt.com/",
+      "apiKeyUrl": "https://ai.soruxgpt.com/console/token",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-ikun-code",
+      "name": "IKunCode",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.ikuncode.ai",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://api.ikuncode.ai/",
+      "apiKeyUrl": "https://api.ikuncode.ai/console/token",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-run-token",
+      "name": "RunToken",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://www.runtoken.ai",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://www.runtoken.ai/",
+      "apiKeyUrl": "https://www.runtoken.ai/console/token",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-bot-cf",
+      "name": "BotCF",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://botcf.com",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://botcf.com/",
+      "apiKeyUrl": "https://botcf.com/console/token",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-yylx",
+      "name": "YYLX",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "鱼鱼连线 yylx.io",
+      "api": "anthropic-messages",
+      "baseUrl": "https://app.yylx.io",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://yylx.io/",
+      "apiKeyUrl": "https://app.yylx.io/keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-token-flux",
+      "name": "TokenFlux",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://tokenflux.dev",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://tokenflux.dev/",
+      "apiKeyUrl": "https://tokenflux.dev/keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-4-5",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-neko-code",
+      "name": "NekoCode",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://nekoapi.ai",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://nekoapi.ai/",
+      "apiKeyUrl": "https://nekoapi.ai/token",
+      "extraHeaders": {
+        "User-Agent": "claude-cli/2.1.161 (external, cli)"
+      },
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cc-switch-aicoming",
+      "name": "AIComing",
+      "family": null,
+      "planKey": null,
+      "regionKey": null,
+      "category": "aggregator",
+      "aliases": "",
+      "api": "anthropic-messages",
+      "baseUrl": "https://api.aicoming.top",
+      "authMode": "x-api-key",
+      "apiVersion": "2023-06-01",
+      "inferencePath": "v1/messages",
+      "discovery": "cc-switch",
+      "modelsPath": "models",
+      "evidence": "upstream-preset-not-account-verified",
+      "websiteUrl": "https://aicoming.top/",
+      "apiKeyUrl": "https://aicoming.top/console#keys",
+      "extraHeaders": {},
+      "requiresAdapter": false,
+      "modelSuggestions": [
+        {
+          "id": "claude-opus-5-5",
+          "name": "Claude Opus 5.5"
+        },
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5"
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "name": "Claude Haiku 4.5 (latest)"
+        }
+      ],
+      "source": {
+        "project": "cc-switch",
+        "commit": "d8983bb10b82a1ccc15ae5f44ab070902623e990",
+        "path": "src/config/piProviderPresets.ts",
+        "license": "MIT"
+      }
+    }
+  ],
+  "sourceCommit": "d8983bb10b82a1ccc15ae5f44ab070902623e990"
+}

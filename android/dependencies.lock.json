@@ -1,0 +1,96 @@
+{
+  "sources": [
+    {
+      "repo": "localai-org/moss-transcribe.cpp",
+      "commit": "190a569c13b4b247450f2fb3b2a431244e84833e",
+      "destination": "vendor/moss-native",
+      "include": [
+        "src/",
+        "include/",
+        "scripts/",
+        "tests/",
+        "third_party/dr_wav.h",
+        "CMakeLists.txt",
+        "LICENSE",
+        "README.md",
+        ".gitmodules"
+      ]
+    },
+    {
+      "repo": "ggml-org/ggml",
+      "commit": "eced84c86f8b012c752c016f7fe789adea168e1e",
+      "destination": "vendor/moss-native/third_party/ggml",
+      "include": [
+        "src/",
+        "include/",
+        "cmake/",
+        "CMakeLists.txt",
+        "LICENSE"
+      ]
+    },
+    {
+      "repo": "KhronosGroup/Vulkan-Headers",
+      "commit": "9fbc2a782ee3f8a4db64e7d991e23da75e893f44",
+      "destination": "vendor/Vulkan-Headers",
+      "include": [
+        "include/",
+        "LICENSE.md",
+        "LICENSES/"
+      ]
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "commit": "ed7adbfefd5e3af5f1c7c04ac67145783def85c5",
+      "destination": "vendor/opencl-program-cache",
+      "include": ["ggml/src/ggml-opencl/cl-program-cache.cpp", "ggml/src/ggml-opencl/cl-program-cache.h", "LICENSE"]
+    },
+    {
+      "repo": "KhronosGroup/OpenCL-Headers",
+      "commit": "82f60316cc142e7b21dc1d8983b26de18858fbd9",
+      "destination": "vendor/OpenCL-Headers",
+      "include": ["CL/", "LICENSE"]
+    },
+    {
+      "repo": "KhronosGroup/SPIRV-Headers",
+      "commit": "6efe5ae6b7c6ad29da3f2cc3f164b9c3d72b78b1",
+      "destination": "vendor/SPIRV-Headers",
+      "include": [
+        "include/spirv/unified1/spirv.hpp",
+        "LICENSE",
+        "LICENSES/"
+      ]
+    }
+  ],
+  "model": {
+    "repository": "OpenMOSS-Team/MOSS-Transcribe-Diarize",
+    "revision": "704aa4a9c304e8520be88901e0d1960158ef5b15",
+    "source_weight_sha256": "9a0ceb4ab7330357db3ff583dba8d83625d5b733b00e1d55d6970e11b07026c4",
+    "file": "models/moss-android-q8_0.gguf",
+    "quantization": "q8_0",
+    "gguf_url": "https://huggingface.co/mudler/moss-transcribe.cpp-gguf/resolve/54e4bbd17da3f84adf1c1bcf7791b9b9266f741e/moss-transcribe-q8_0.gguf",
+    "bytes": 986881024,
+    "sha256": "ed6c35d0d527c5d03171c3eb448e2150a42c76a51e3e73aa821e351c3da8307c"
+  },
+  "tools": {
+    "ndk": "30.0.16248370",
+    "compile_sdk": 36,
+    "build_tools": "36.0.0",
+    "jdk": 17,
+    "python_gguf": "0.17.1"
+  },
+  "speaker": {
+    "runtime_version": "2.0.1",
+    "runtime_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/v2.0.1/sherpa-onnx-v2.0.1-android-static-link-onnxruntime.tar.bz2",
+    "runtime_sha256": "fe1c9ceffd86770218a1d4bba6b410d6f726b2b8dda6a5488499b05250b53aea",
+    "native_sha256": "491b1b6e287fdfe5e0e1ffa918f5e5556299cb14bea7b7b8a0c19468f4156193",
+    "model_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+    "model_sha256": "1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b",
+    "model_bytes": 39593761,
+    "bindings": {
+      "OnlineStream.java": "af9baa14b2b2bc8c6cf8be177728d79fff0f63720570f51d75a7739c475ada2c",
+      "SpeakerEmbeddingExtractor.java": "5ed070b46d9f455b1c4d189bc6d872cc0ab9d6077680d6d04dca1d44c476a768",
+      "SpeakerEmbeddingExtractorConfig.java": "09977d97c3e30926b349530fc68182e381a2b4f28d59472bd9eb89d8ead1f9be"
+    },
+    "onnxruntime_version": "1.28.2"
+  }
+}

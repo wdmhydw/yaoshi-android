@@ -1,0 +1,43 @@
+/* Native physical insets are converted to CSS pixels by renderInsets().
+   Backgrounds cover the window; content and fixed controls respect its safe area. */
+:root{
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-right:env(safe-area-inset-right,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+  --safe-left:env(safe-area-inset-left,0px);
+  --safe-x:calc(var(--safe-left) + var(--safe-right));
+  --usable-height:calc(100svh - var(--safe-top) - var(--safe-bottom));
+  --safe-center:calc(50% + (var(--safe-left) - var(--safe-right)) / 2);
+  --appbar-height:92px;
+}
+body{padding:var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left)}
+.appbar{position:sticky;top:var(--safe-top);z-index:40}
+.appbar.scrolled:before{content:"";position:absolute;z-index:-1;inset:calc(-1 * var(--safe-top)) 0 0;background:rgba(3,3,4,.91);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);pointer-events:none}
+.home-page{height:calc(var(--usable-height) - 92px)}
+.reading-page,.history-page{min-height:calc(var(--usable-height) - 92px)}
+.conversation-row{scroll-margin-top:calc(var(--appbar-height) + 16px + var(--safe-top));scroll-margin-bottom:calc(160px + var(--safe-bottom))}
+#detail-player-mount{bottom:calc(18px + var(--safe-bottom));left:var(--safe-center);width:min(880px,calc(100% - 60px - var(--safe-x)))}
+.sheet{top:calc(14px + var(--safe-top));bottom:calc(14px + var(--safe-bottom));right:calc(14px + var(--safe-right));width:min(420px,calc(100vw - 28px - var(--safe-x)))}
+.export-sheet{top:auto;bottom:calc(24px + var(--safe-bottom));right:calc(24px + var(--safe-right));max-height:calc(var(--usable-height) - 48px)}
+.report-sheet{width:min(650px,calc(100vw - 28px - var(--safe-x)))}
+.speaker-sheet,.edit-sheet{top:auto;bottom:calc(20px + var(--safe-bottom));left:var(--safe-center);right:auto;max-height:calc(var(--usable-height) - 40px)}
+.speaker-sheet{width:min(480px,calc(100vw - 32px - var(--safe-x)))}
+.edit-sheet{width:min(640px,calc(100vw - 32px - var(--safe-x)))}
+#snackbar{bottom:calc(25px + var(--safe-bottom));left:var(--safe-center);max-width:min(550px,calc(100vw - 32px - var(--safe-x)))}
+@media(max-width:650px){
+  :root{--appbar-height:138px}
+  .appbar{height:var(--appbar-height);align-items:flex-start;padding-top:12px}
+  .home-page{height:calc(var(--usable-height) - var(--appbar-height));min-height:calc(var(--usable-height) - var(--appbar-height));padding-bottom:16px}
+  .reading-page,.history-page{min-height:calc(var(--usable-height) - var(--appbar-height))}
+  .nav-tabs{position:absolute;top:78px;bottom:auto;left:50%;max-width:100%}
+  .nav-tabs button{min-height:48px}
+  #detail-player-mount{bottom:calc(18px + var(--safe-bottom));width:calc(100% - 24px - var(--safe-x))}
+  .sheet{top:calc(7px + var(--safe-top));bottom:calc(7px + var(--safe-bottom));right:calc(7px + var(--safe-right));width:calc(100vw - 14px - var(--safe-x))}
+  .export-sheet{top:auto;bottom:calc(8px + var(--safe-bottom));right:calc(8px + var(--safe-right))}
+  .speaker-sheet,.edit-sheet{top:auto;right:auto;bottom:calc(8px + var(--safe-bottom));max-height:calc(var(--usable-height) - 16px)}
+  #snackbar{bottom:calc(84px + var(--safe-bottom))}
+}
+
+#footer-status.thermal-status{padding:4px 10px;border-radius:12px;background:rgba(24,25,29,.93);color:#e3e2e8;font-size:14px;line-height:1.5;white-space:normal;text-align:center}
+
+.record-sheet{top:calc(var(--safe-top) + var(--usable-height) / 2);bottom:auto;left:var(--safe-center);right:auto;transform:translate(-50%,-50%);width:min(440px,calc(100vw - 32px - var(--safe-x)));max-height:calc(var(--usable-height) - 32px);animation:none}

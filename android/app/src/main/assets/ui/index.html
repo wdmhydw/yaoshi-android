@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; media-src 'self' blob:; object-src 'none'; frame-src 'none'">
+  <meta name="color-scheme" content="dark"><title>燿识·声音角色识别</title>
+  <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/insets.css"><link rel="stylesheet" href="/ai.css"><script defer src="/orb.js"></script><script defer src="/timeline.js"></script><script defer src="/transcript.js"></script><script defer src="/gestures.js"></script><script defer src="/app.js"></script><script defer src="/ai.js"></script>
+</head>
+<body>
+<div id="visual-background" aria-hidden="true"><img id="orb-poster" src="/media/orb-poster.webp" alt=""><video id="orb-video-a" muted playsinline preload="auto" poster="/media/orb-poster.webp" disablepictureinpicture disableremoteplayback></video><video id="orb-video-b" muted playsinline preload="auto" poster="/media/orb-poster.webp" disablepictureinpicture disableremoteplayback></video></div>
+<svg class="icon-defs" aria-hidden="true"><defs>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+ <symbol id="i-back" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6M8 12h13"/></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+ <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 10v4M7.5 6v12M12 3v18M16.5 7v10M21 10v4"/></symbol>
+ <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h5m4 0h7M4 17h9m4 0h3"/><circle cx="11" cy="7" r="2"/><circle cx="15" cy="17" r="2"/></symbol>
+ <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+ <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="3"/><path d="M15 5V3H3v12h2"/></symbol>
+ <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+ <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 10 7-10 7Z"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+ <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6Z"/><path d="m8 12 3 3 5-6"/></symbol>
+ <symbol id="i-stop" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/></symbol>
+ <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11v1a7 7 0 0 0 14 0v-1M12 19v3M8 22h8"/></symbol>
+ <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+ <symbol id="i-rewind" viewBox="0 0 24 24"><path d="M4 8V3m0 5h5M4 8a9 9 0 1 1-1 7"/><path d="M10 10v6m4-6v6"/></symbol>
+ <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 14 4-4M8 16l-2 2a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0M16 8l2-2a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0" transform="translate(2 0) scale(.84 1)"/></symbol>
+ <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4Z"/></symbol>
+ <symbol id="i-edit" viewBox="0 0 24 24"><path d="m15 4 5 5M4 20l1-6L16 3a2 2 0 0 1 3 0l2 2a2 2 0 0 1 0 3L10 19ZM4 20l6-1"/></symbol>
+ <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 10v7M14 10v7"/></symbol>
+ <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+ <symbol id="i-notes" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8ZM14 3v5h5M8 12h8M8 16h5"/></symbol>
+</defs></svg>
+<header class="appbar">
+ <button class="brand" data-go="home" aria-label="燿识·声音角色识别"><span class="brand-name"><img class="brand-wordmark" src="/media/yaoshi-wordmark.webp" alt="燿识"><span>声音角色识别</span></span></button>
+ <nav class="glass nav-tabs" aria-label="主导航"><button class="active" data-go="home">转写空间</button><button data-go="history">转写记录<span id="history-count"></span></button></nav>
+ <div class="bar-end"><button id="settings-open" class="icon-button glass" aria-label="设置"><svg><use href="#i-settings"/></svg></button></div>
+</header>
+<main>
+ <section id="home" class="page home-page" aria-label="转写空间">
+  <div class="scene">
+   <div class="progress-label" id="progress-label"><span id="progress-caption"></span><span id="progress-value"></span></div>
+   <button id="orb-open" aria-label="查看当前转写详情" disabled></button>
+   <div class="preview-cloud" id="preview-cloud" aria-label="转写内容预览"><div class="preview-side left" id="preview-left"></div><div class="preview-side right" id="preview-right"></div></div>
+   <p id="preview-wait" class="pending-caption glass" hidden></p>
+   <div class="scene-caption"><p id="audio-position"></p><button id="open-detail" class="text-button" hidden>查看转写<svg><use href="#i-arrow"/></svg></button></div>
+  </div>
+  <div class="home-bottom">
+   <div id="home-player-mount"></div>
+   <div class="control-dock glass strong">
+    <button id="pick-file" class="file-button"><span class="file-icon"><svg><use href="#i-wave"/></svg></span><span><strong id="selected-file">添加音频 / 视频</strong></span><svg class="file-add"><use href="#i-plus"/></svg></button>
+    <span class="dock-divider"></span><button id="backend-open" class="backend-button" aria-label="选择计算方式">CPU<span></span></button>
+    <button id="record-start" class="record-button"><svg><use href="#i-mic"/></svg><span>录音转写</span></button>
+    <button id="primary-action" class="primary-button"><span>选择录音</span><svg><use href="#i-arrow"/></svg></button>
+   </div>
+   <div class="dock-foot"><button id="demo-button"><svg><use href="#i-play"/></svg>示例</button><span id="footer-status"></span><span id="elapsed-label"></span></div>
+  </div>
+ </section>
+ <section id="detail" class="page reading-page" hidden aria-label="详细转写">
+  <div class="reading-toolbar"><button id="detail-back" class="text-button"><svg><use href="#i-back"/></svg>返回转写空间</button><div class="reading-actions"><button id="retry-transcribe" class="glass small-button" hidden>重新转写</button><button id="detail-stop" class="glass small-button" hidden>结束录音</button><button id="minutes-open" class="glass small-button"><svg><use href="#i-notes"/></svg>AI 纪要</button><button id="copy-button" class="glass small-button" aria-label="复制全文"><svg><use href="#i-copy"/></svg>复制</button><button id="export-open" class="glass small-button"><svg><use href="#i-download"/></svg>导出</button></div></div>
+  <div class="document-heading"><h1 id="detail-title">转写内容</h1><p id="detail-state"></p><div class="document-meta" id="detail-meta"></div><div class="detail-progress" id="detail-progress" hidden><i></i></div></div>
+  <div class="speaker-toolbar"><span>对话</span><div id="speaker-filters" aria-label="按说话人筛选"></div><label class="follow-control"><input type="checkbox" id="follow-live" checked>跟随文字</label></div>
+  <button id="speaker-match-status" class="speaker-match-status text-button" hidden></button>
+  <div class="transcript-tools"><label class="search-box glass"><svg><use href="#i-search"/></svg><input id="transcript-search" type="search" placeholder="搜索文字或说话人" aria-label="搜索当前逐字稿" maxlength="200"></label><button id="bookmarks-only" class="outline-button" aria-pressed="false"><svg><use href="#i-bookmark"/></svg>只看重点</button><span id="transcript-match-count" role="status"></span></div>
+  <div class="conversation" id="conversation" aria-label="转写对话"></div>
+  <article id="draft-preview" class="conversation-row is-generating" aria-label="正在生成的文字" hidden></article>
+  <div class="reading-end" id="reading-end"></div>
+  <div id="detail-player-mount"></div>
+ </section>
+ <section id="history" class="page history-page" hidden aria-label="转写记录">
+  <div class="history-heading"><h1>转写记录</h1><label class="search-box glass"><svg><use href="#i-search"/></svg><input id="history-search" type="search" placeholder="搜索录音、全文或说话人" aria-label="搜索所有转写记录" maxlength="200"></label></div>
+  <div class="history-list" id="history-list"></div>
+ </section>
+
+ <section id="minutes" class="page reading-page ai-minutes-page" hidden aria-label="AI 会议纪要">
+  <div class="reading-toolbar"><button id="minutes-back" class="text-button"><svg><use href="#i-back"/></svg>返回逐字稿</button><div class="reading-actions"><button id="minutes-edit" class="glass small-button"><svg><use href="#i-edit"/></svg>编辑</button><button id="minutes-copy" class="glass small-button" aria-label="复制纪要"><svg><use href="#i-copy"/></svg>复制</button><button id="minutes-export" class="glass small-button"><svg><use href="#i-download"/></svg>导出</button><button id="minutes-folder" class="glass small-button">文件夹</button><button id="minutes-delete" class="glass small-button"><svg><use href="#i-trash"/></svg>删除</button></div></div>
+  <h1 id="minutes-title" class="minutes-heading">会议纪要</h1>
+  <div class="minutes-controls"><label class="ai-field"><span>整理模板</span><select id="minutes-template" aria-label="整理模板"></select></label><button id="minutes-templates" class="text-button">编辑模板</button><button id="minutes-generate" class="primary-button">生成纪要</button></div>
+  <div class="minutes-meta"><button id="minutes-model" class="text-button">选择 AI 模型</button><label id="minutes-versions-label" class="minutes-versions" hidden><span id="minutes-versions-count">历次纪要</span><select id="minutes-version" aria-label="纪要版本" hidden></select></label></div>
+  <p id="minutes-data-note" class="minutes-note">生成时仅发送转写文字，原音频留在本机。</p>
+  <div id="minutes-progress" class="minutes-progress" hidden><span id="minutes-progress-text"></span><button id="minutes-cancel" class="text-button">停止</button></div>
+  <p id="minutes-error" class="ai-error" role="status" hidden></p>
+  <div id="minutes-empty" class="minutes-empty">选择模板生成纪要，或<button id="minutes-paste" class="text-button">粘贴已有纪要</button>。</div><article id="minutes-content" class="minutes-content"></article>
+  <div id="minutes-editor-wrap" hidden><label class="ai-field"><span>纪要内容</span><textarea id="minutes-editor" class="minutes-editor" maxlength="100000" spellcheck="false"></textarea></label><div class="ai-actions"><button id="minutes-edit-cancel" class="text-button">取消编辑</button><button id="minutes-save" class="primary-button">保存修改</button></div></div>
+ </section>
+</main>
+<div id="player-panel" class="source-player glass strong" hidden>
+ <div class="player-controls"><button id="audio-play" class="icon-button player-play" aria-label="播放原音频"><svg><use href="#i-play"/></svg></button><button id="audio-rewind" class="icon-button" aria-label="后退十秒"><svg><use href="#i-rewind"/></svg></button><time id="audio-current">00:00</time><input id="audio-seek" type="range" min="0" max="1" step="0.05" value="0" aria-label="原音频播放进度"><time id="audio-duration">00:00</time><button id="audio-speed" aria-label="切换播放速度">1×</button><button id="audio-relink" class="icon-button" aria-label="关联原音频"><svg><use href="#i-link"/></svg></button></div>
+ <p id="playback-message" hidden></p>
+</div>
+<div id="sheet-backdrop" class="sheet-backdrop" hidden></div>
+<aside id="settings-sheet" class="sheet glass strong" hidden role="dialog" aria-modal="true" aria-labelledby="settings-title">
+ <div class="sheet-heading"><h2 id="settings-title">设置</h2><button class="icon-button close-sheet" aria-label="关闭设置"><svg><use href="#i-close"/></svg></button></div>
+ <section class="setting-group"><h3>计算方式</h3><div class="backend-options" role="group" aria-label="计算方式"><button data-backend="cpu"><span>CPU<small>稳定模式</small></span><svg><use href="#i-check"/></svg></button><button data-backend="vulkan"><span>Vulkan GPU<small>实验模式</small></span><svg><use href="#i-check"/></svg></button><button data-backend="opencl"><span>OpenCL GPU<small>高通 Adreno</small></span><svg><use href="#i-check"/></svg></button></div></section>
+ <section class="setting-group motion-row"><h3>减少动态效果</h3><button id="motion-toggle" class="switch" role="switch" aria-checked="false" aria-label="减少动态效果"><i></i></button></section>
+ <section class="setting-group"><div class="model-row"><h3>温度状态</h3><span id="thermal-state">由系统调节</span></div><p id="thermal-copy">温度管理交给设备系统，应用只显示温度状态。</p></section>
+ <section class="setting-group"><div class="model-row"><h3>后台运行</h3><span id="background-state"></span></div><p>切出应用后继续转写，通知栏可查看和停止。</p><button id="background-settings" class="outline-button">允许持续运行<svg><use href="#i-arrow"/></svg></button></section>
+ <section class="setting-group" id="speech-model"><div class="model-row"><h3>本地转写模型</h3><span id="model-state"></span></div><p>MOSS Q8_0 · 941 MiB · Hugging Face</p><p id="model-copy" role="status"></p><div class="model-actions"><button id="download-model" class="outline-button">下载并启用模型</button><button id="pause-model" class="outline-button" hidden>暂停下载</button><button id="import-model" class="text-button">从文件导入</button></div></section>
+ <section class="setting-group file-settings"><div class="model-row"><h3>文件保存位置</h3></div><p id="save-folder-path">下载/燿识</p><div class="file-folder-actions"><button id="choose-save-folder" class="outline-button">更换位置</button><button id="open-save-folder" class="outline-button">打开文件夹</button><button id="reset-save-folder" class="text-button" hidden>恢复默认</button></div><p id="file-save-status" role="status" hidden></p><button id="retry-file-save" class="outline-button" hidden>重试</button></section>
+ <div class="settings-links"><button id="ai-settings-open">AI 模型<svg><use href="#i-arrow"/></svg></button><button id="ai-templates-open">整理模板<svg><use href="#i-arrow"/></svg></button><button id="diagnostics-button">设备能力与诊断<svg><use href="#i-arrow"/></svg></button><button id="about-button">关于与开源说明<svg><use href="#i-arrow"/></svg></button></div>
+</aside>
+<aside id="speaker-sheet" class="sheet speaker-sheet glass strong" hidden role="dialog" aria-modal="true" aria-labelledby="speaker-title"><div class="sheet-heading"><h2 id="speaker-title">标注说话人</h2><button class="icon-button close-sheet" aria-label="关闭标注"><svg><use href="#i-close"/></svg></button></div><p id="speaker-original" class="sheet-intro"></p><label class="field-label" for="speaker-name-input">姓名或角色</label><input id="speaker-name-input" type="text" maxlength="40" autocomplete="off" placeholder="输入姓名或角色"><div id="speaker-suggestions"></div><details id="speaker-corrections" class="speaker-corrections"><summary>调整归属</summary><div id="speaker-assign-wrap"><label class="field-label" for="speaker-assign-to">这句话属于</label><div class="speaker-correction-row"><select id="speaker-assign-to"></select><button id="speaker-assign" class="outline-button">应用到这句</button></div></div><div id="speaker-merge-wrap"><label class="field-label" for="speaker-merge-to">合并全部发言</label><div class="speaker-correction-row"><select id="speaker-merge-to"></select><button id="speaker-merge" class="outline-button" disabled>合并</button></div></div></details><div class="speaker-actions"><button id="speaker-reset" class="text-button">恢复编号</button><button id="speaker-save" class="primary-button">保存</button></div></aside>
+<aside id="record-sheet" class="sheet record-sheet glass strong" hidden role="dialog" aria-modal="true" aria-labelledby="record-menu-title"><div class="sheet-heading"><h2 id="record-menu-title">转写记录</h2><button class="icon-button close-sheet" aria-label="关闭记录菜单"><svg><use href="#i-close"/></svg></button></div><div class="record-actions"><button id="record-view"><svg><use href="#i-notes"/></svg><span>查看转写</span><svg><use href="#i-arrow"/></svg></button><button id="record-minutes" hidden><svg><use href="#i-notes"/></svg><span>查看纪要</span><svg><use href="#i-arrow"/></svg></button><button id="record-match"><svg><use href="#i-wave"/></svg><span id="record-match-label">整理说话人</span></button><button id="record-remove" class="danger-action"><svg><use href="#i-trash"/></svg><span>删除记录</span></button></div></aside>
+<aside id="edit-sheet" class="sheet edit-sheet glass strong" hidden role="dialog" aria-modal="true" aria-labelledby="edit-title"><div class="sheet-heading"><h2 id="edit-title">文本纠错</h2><button class="icon-button close-sheet" aria-label="关闭纠错"><svg><use href="#i-close"/></svg></button></div><div class="edit-meta"><span id="edit-speaker"></span><button id="edit-listen" class="text-button"><svg><use href="#i-play"/></svg>回听这句</button></div><label class="field-label" for="edit-text">转写内容</label><textarea id="edit-text" rows="5" maxlength="10000" spellcheck="false"></textarea><details class="original-copy"><summary>原始识别</summary><p id="edit-original"></p></details><div class="speaker-actions"><button id="edit-reset" class="text-button">恢复原文</button><button id="edit-save" class="primary-button">保存修改</button></div></aside>
+<aside id="export-sheet" class="sheet export-sheet glass strong" hidden role="dialog" aria-modal="true" aria-labelledby="export-title"><div class="sheet-heading"><h2 id="export-title">导出</h2><button class="icon-button close-sheet" aria-label="关闭导出"><svg><use href="#i-close"/></svg></button></div><div class="export-location"><span id="export-folder-path">下载/燿识</span><button id="export-choose-folder" class="text-button">更换位置</button></div><div class="export-options"><button data-export="MD"><strong>Markdown</strong><span>文稿</span><svg><use href="#i-arrow"/></svg></button><button data-export="SRT"><strong>SRT 字幕</strong><span>时间戳与说话人</span><svg><use href="#i-arrow"/></svg></button><button data-export="JSON"><strong>JSON 数据</strong><span>结构化数据</span><svg><use href="#i-arrow"/></svg></button></div></aside>
+<aside id="minutes-export-sheet" class="sheet export-sheet glass strong" hidden role="dialog" aria-modal="true" aria-labelledby="minutes-export-title">
+ <div class="sheet-heading"><h2 id="minutes-export-title">导出会议纪要</h2><button class="icon-button close-sheet" aria-label="关闭导出"><svg><use href="#i-close"/></svg></button></div>
+ <div class="export-location"><span id="minutes-export-folder"></span></div>
+ <div class="export-options"><button data-minutes-export="DOCX"><strong>Word 文档</strong><span>.docx</span><svg><use href="#i-arrow"/></svg></button><button data-minutes-export="MD"><strong>Markdown</strong><span>.md</span><svg><use href="#i-arrow"/></svg></button></div>
+</aside>
+<aside id="report-sheet" class="sheet report-sheet glass strong" hidden role="dialog" aria-modal="true" aria-labelledby="report-title"><div class="sheet-heading"><h2 id="report-title">详情</h2><button class="icon-button close-sheet" aria-label="关闭详情"><svg><use href="#i-close"/></svg></button></div><pre id="report-body"></pre></aside>
+
+<aside id="ai-settings-sheet" class="sheet ai-settings-sheet glass strong" hidden role="dialog" aria-modal="true" aria-labelledby="ai-settings-title">
+ <div class="sheet-heading"><h2 id="ai-settings-title">AI 模型</h2><button class="icon-button close-sheet" aria-label="关闭 AI 模型设置"><svg><use href="#i-close"/></svg></button></div>
+ <div class="ai-settings-layout"><div><div id="ai-connections" class="ai-connections"></div><button id="ai-add-connection" class="outline-button">添加连接<svg><use href="#i-plus"/></svg></button></div>
+ <div><div id="ai-settings-empty" class="ai-settings-empty">添加供应商，选择用于整理的模型。</div>
+ <div id="ai-connection-form" hidden>
+  <details id="ai-provider-picker" class="ai-provider-picker"><summary class="ai-label">选择供应商</summary><label class="ai-field"><span>搜索供应商</span><input id="ai-provider-search" type="search" placeholder="名称、地区或套餐" autocomplete="off"><select id="ai-provider" size="5" aria-label="供应商预设"></select></label></details>
+  <label class="ai-field"><span>连接名称</span><input id="ai-connection-name" maxlength="80" autocomplete="off"></label>
+  <label class="ai-field" for="ai-key"><span>API 密钥</span><input id="ai-key" type="text" inputmode="text" maxlength="8192" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="粘贴 API 密钥"></label><button id="ai-key-clear" class="text-button" hidden>清除已保存密钥</button>
+  <div class="ai-inline"><button id="ai-fetch-models" class="outline-button">获取模型</button><button id="ai-operation-cancel" class="text-button" hidden>取消请求</button></div><p id="ai-directory-status" class="ai-status" role="status"></p>
+  <details id="ai-model-picker" class="ai-picker"><summary>管理启用的模型 <span id="ai-enabled-count"></span></summary><input id="ai-model-search" class="ai-input" type="search" placeholder="搜索名称或完整模型 ID" aria-label="搜索模型"><div id="ai-model-list" class="ai-model-list"></div><div class="ai-actions"><button id="ai-models-cancel" class="text-button">取消</button><button id="ai-models-apply" class="outline-button">应用选择</button></div></details>
+  <div class="ai-field"><span>手动添加模型</span><div class="ai-inline"><input id="ai-manual-model" class="ai-input" aria-label="模型完整 ID" placeholder="填写完整模型 ID" maxlength="512"><button id="ai-add-model" class="text-button">添加</button></div></div>
+  <label class="ai-field"><span>默认模型</span><select id="ai-default-model"></select></label>
+  <details class="ai-advanced"><summary>高级设置</summary><label class="ai-field"><span>API 地址</span><input id="ai-base-url" type="url" spellcheck="false" autocomplete="off" placeholder="https://example.com/v1"></label><label class="ai-field"><span>协议</span><select id="ai-api"><option value="openai-completions">OpenAI Chat 兼容</option><option value="openai-responses">OpenAI Responses 兼容</option><option value="anthropic-messages">Anthropic Messages</option><option value="google-generative-ai">Google Gemini</option></select></label><label class="ai-field"><span>鉴权方式</span><select id="ai-auth"><option value="bearer">Bearer</option><option value="x-api-key">x-api-key</option><option value="api-key">api-key</option><option value="x-goog-api-key">x-goog-api-key</option><option value="none">无需密钥</option></select></label><label class="ai-field"><span>模型列表路径</span><input id="ai-models-path" placeholder="models" spellcheck="false"></label><label class="ai-field"><span>生成路径</span><input id="ai-inference-path" placeholder="按协议自动填写" spellcheck="false"></label></details>
+  <label class="ai-check"><input id="ai-make-default" type="checkbox">设为默认连接</label><p id="ai-test-status" class="ai-status" role="status">未测试</p><p id="ai-form-error" class="ai-error" hidden role="status"></p>
+  <div class="ai-actions"><button id="ai-test" class="outline-button">测试连接</button><button id="ai-save-connection" class="primary-button">保存未验证配置</button><button id="ai-delete-connection" class="text-button ai-danger" hidden>删除连接</button></div>
+ </div></div></div>
+</aside>
+<aside id="ai-template-sheet" class="sheet ai-template-sheet glass strong" hidden role="dialog" aria-modal="true" aria-labelledby="ai-template-title">
+ <div class="sheet-heading"><h2 id="ai-template-title">整理模板</h2><button class="icon-button close-sheet" aria-label="关闭整理模板"><svg><use href="#i-close"/></svg></button></div>
+ <label class="ai-field"><span>选择模板</span><select id="ai-template-select"></select></label><button id="ai-template-new" class="outline-button">新建模板<svg><use href="#i-plus"/></svg></button>
+ <label class="ai-field"><span>名称</span><input id="ai-template-name" maxlength="50" placeholder="例如：客户沟通纪要"></label><label class="ai-field"><span>提示词</span><textarea id="ai-template-prompt" maxlength="16000" rows="12" placeholder="写下你希望 AI 怎样整理录音…"></textarea></label>
+ <div class="ai-actions"><button id="ai-template-delete" class="text-button ai-danger" hidden>删除模板</button><button id="ai-template-save" class="primary-button">另存为模板</button></div>
+</aside>
+<aside id="confirm-sheet" class="sheet confirm-sheet glass strong" hidden role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-message"><div class="sheet-heading"><h2 id="confirm-title">删除连接</h2><button class="icon-button close-sheet" aria-label="关闭确认"><svg><use href="#i-close"/></svg></button></div><p id="confirm-message"></p><div class="confirm-actions"><button id="confirm-cancel" class="outline-button">取消</button><button id="confirm-accept" class="primary-button">删除</button></div></aside>
+<div id="snackbar" role="status" aria-live="polite" hidden></div>
+</body></html>
